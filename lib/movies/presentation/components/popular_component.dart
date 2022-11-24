@@ -3,7 +3,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/core/network/api_constants.dart';
-import 'package:movies/core/utils/dummy.dart';
 import 'package:movies/core/utils/enums.dart';
 import 'package:movies/movies/presentation/controller/movies_bloc.dart';
 import 'package:shimmer/shimmer.dart';
@@ -18,7 +17,7 @@ class PopularComponent extends StatelessWidget {
       previous.popularState != current.popularState,
       builder: (context, state) {
         switch(state.popularState){
-          case RequestState.isLoading:
+          case RequestState.loading:
             return const SizedBox(
               height: 400,
               child: Center(
@@ -41,7 +40,7 @@ class PopularComponent extends StatelessWidget {
                       padding: const EdgeInsets.only(right: 8.0),
                       child: InkWell(
                         onTap: () {
-                          /// TODO : NAVIGATE TO  MOVIE DETAILS
+                          // Navigator.push(context, MaterialPageRoute(builder: (context) => MovieDetailScreen(id:state.popularMovies.indexOf(0)),))
                         },
                         child: ClipRRect(
                           borderRadius:

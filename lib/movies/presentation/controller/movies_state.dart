@@ -1,7 +1,7 @@
 part of 'movies_bloc.dart';
 
 class MoviesState extends Equatable {
-  final List<Movie> nowPlayingMovies;
+  final List<Movie> nowPlayingMoviesList;
   final RequestState nowPlayingState;
   final String nowPlayingMessage;
   final List<Movie> popularMovies;
@@ -12,20 +12,20 @@ class MoviesState extends Equatable {
   final String topRatedMessage;
 
   const MoviesState({
-    this.nowPlayingMovies = const [],
-    this.nowPlayingState = RequestState.isLoading,
+    this.nowPlayingMoviesList = const [],
+    this.nowPlayingState = RequestState.loading,
     this.nowPlayingMessage = '',
     this.popularMovies = const [],
-    this.popularState = RequestState.isLoading,
+    this.popularState = RequestState.loading,
     this.popularMessage = '',
     this.topRatedMovies = const [],
-    this.topRatedState = RequestState.isLoading,
+    this.topRatedState = RequestState.loading,
     this.topRatedMessage = '',
   });
 
   /// checking value in state if null return attribute data if != null --> save new value.
   MoviesState copyWith({
-    List<Movie>? nowPlayingMovies,
+    List<Movie>? nowPlayingMoviesList,
     RequestState? nowPlayingState,
     String? nowPlayingMessage,
     List<Movie>? popularMovies,
@@ -36,7 +36,7 @@ class MoviesState extends Equatable {
     String? topRatedMessage,
   }) {
     return MoviesState(
-        nowPlayingMovies: nowPlayingMovies ?? this.nowPlayingMovies,
+        nowPlayingMoviesList: nowPlayingMoviesList ?? this.nowPlayingMoviesList,
         nowPlayingState: nowPlayingState ?? this.nowPlayingState,
         nowPlayingMessage: nowPlayingMessage ?? this.nowPlayingMessage,
         popularMovies: popularMovies ?? this.popularMovies,
@@ -49,7 +49,7 @@ class MoviesState extends Equatable {
 
   @override
   List<Object?> get props => [
-        nowPlayingMovies,
+        nowPlayingMoviesList,
         nowPlayingState,
         nowPlayingMessage,
         popularMovies,

@@ -18,7 +18,7 @@ class TopRatedComponent extends StatelessWidget {
       previous.topRatedState != current.topRatedState,
       builder: (context, state) {
         switch(state.topRatedState){
-          case RequestState.isLoading:
+          case RequestState.loading:
             return const SizedBox(
               height: 400,
               child: Center(
